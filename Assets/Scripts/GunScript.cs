@@ -16,11 +16,11 @@ public class GunScript : MonoBehaviour
     public Transform firePoint;
     [SerializeField]
     ParticleSystem particleSystem;
-    
+    Animator animator;
 
     void Start()
     {
-        
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -31,8 +31,10 @@ public class GunScript : MonoBehaviour
         {
             if(Input.GetButton("Fire1"))
             {
+                animator.SetTrigger("Shoot");
                 timer = 0;
                 ToFireGun();
+               
 
             }
         }
